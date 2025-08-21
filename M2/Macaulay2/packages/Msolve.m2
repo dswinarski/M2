@@ -313,7 +313,7 @@ Node
 	  Example
 	      R = QQ[x,y,z]
 	      I = ideal(x, y, z)
-	      msolveGB(I, Verbosity => 2, Threads => 6)
+	      msolveGB(I, Verbosity => 2, Threads => 6) -* no-capture-flag *-
     References
       [1] The msolve library: @HREF {"https://msolve.lip6.fr"}@;
 
