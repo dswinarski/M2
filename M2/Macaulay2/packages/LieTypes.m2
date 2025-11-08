@@ -1493,7 +1493,9 @@ doc ///
        Common types for Lie groups and Lie algebras
     Description
         Text 
-            This package defines types used by the ConformalBlocks package and may someday be used by other packages as well.  If you would like to see a type or function added to this package (or better yet, if you would like to write types or functions for this package), please contact Dan Grayson, Mike Stillman, or Dave Swinarski.  
+            This package defines types used by the ConformalBlocks package and may someday be used by other packages as well.  If you would like to see a type or function added to this package (or better yet, if you would like to write types or functions for this package), please contact Dan Grayson, Mike Stillman, or Dave Swinarski.
+
+	    See also the new LieAlgebraRepresentations package. It is a significant expansion and renaming of the LieTypes package v0.9, and is ultimately meant to replace LieTypes.
 ///
 
 doc ///
