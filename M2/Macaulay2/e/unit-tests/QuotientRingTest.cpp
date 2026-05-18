@@ -2,6 +2,7 @@
 // Tests for ideal creation, Groebner bases, and quotient rings.
 
 #include <gtest/gtest.h>
+#include "polyring.hpp"
 #include "util-polyring-creation.hpp"
 #include "RingElem.hpp"
 #include "matrix.hpp"
@@ -57,6 +58,22 @@ TEST(QuotientRing, sphere)
   // Consequence: (x+y+z)^2 == 1 + 2*(x*y + x*z + y*z)
   auto lhs = (x + y + z).power(2);
   auto rhs = one + 2 * (x*y + x*z + y*z);
+  EXPECT_EQ(lhs, rhs);
+}
+
+TEST(QuotientRing, fourvar)
+{
+  const PolynomialRing* R = simplePolynomialRing(0, {"x", "y", "z", "w"});
+  const Ring* Q = simpleQuotientRing(R, {"x^2+y^2", "z^2-w^2"});
+  ASSERT_NE(Q, nullptr);
+
+  auto x = RingElem::var(Q, 0);
+  auto y = RingElem::var(Q, 1);
+  auto z = RingElem::var(Q, 2);
+  auto w = RingElem::var(Q, 3);
+
+  auto lhs = (x + y + z + w).power(2);
+  auto rhs = 2 * (x * y + x * z + y * z + x * w + y * w + z * w + w * w);
   EXPECT_EQ(lhs, rhs);
 }
 
